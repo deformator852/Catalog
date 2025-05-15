@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class AdminController extends Controller
+{
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => ['required', 'string'],
+            'password' => ['required', 'string']
+        ]);
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return to_route('panel');
+        }
+        return view('admin.login');
+    }
+}
