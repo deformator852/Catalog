@@ -1,0 +1,90 @@
+@use 'colors';
+
+.submit {
+    background: none;
+    border: 1px solid colors.$primary-color;
+    border-radius: 8px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: colors.$primary-color;
+}
+
+.input {
+    width: 200px;
+    height: 35px;
+    border-radius: 8px;
+    margin-bottom: 13px;
+    border: 1px solid colors.$primary-color;
+    padding-left: 12px;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    &__submit {
+        width: 50px;
+        height: 30px;
+    }
+
+}
+
+.add-product {
+    &__form {
+        margin-top: 30px;
+        margin-left: 60px;
+    }
+
+    &__category {
+        border-radius: 8px;
+        margin-bottom: 13px;
+        margin-top: 13px;
+        width: 100px;
+        height: 35px;
+        border: 1px solid colors.$primary-color;
+        background: none;
+    }
+
+    &__submit {
+        width: 70px;
+        height: 30px;
+    }
+
+    &__description {
+        margin-bottom: 15px;
+        border: 1px solid colors.$primary-color;
+
+    }
+}
+
+.admin-products-list {
+    display: grid;
+    grid-template-columns: repeat(6, 270px);
+    column-gap: 50px;
+
+    &__item {
+    }
+
+    &__image {
+        width: 150px;
+        height: 150px;
+    }
+
+    &__delete {
+        button {
+            text-transform: uppercase;
+            background-color: red;
+            cursor: pointer;
+            width: 62px;
+            border: none;
+            font-size: 16px;
+            border-radius: 8px;
+        }
+    }
+}
