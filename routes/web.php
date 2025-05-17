@@ -16,4 +16,5 @@ Route::prefix('products')->group(function () {
     Route::delete('/destroy/{product}', [ProductController::class, 'destroy'])->middleware('admin')->name('products.destroy');
 });
 
+
 Route::get('/home', [HomeController::class, 'index'])->name('home');

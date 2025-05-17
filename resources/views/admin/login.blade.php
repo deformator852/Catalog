@@ -10,7 +10,16 @@
 
 <body>
 <div class="login">
+
     <form class="login__form" action="" method="POST">
+        <div class="errors">
+            @if ($errors->any())
+                @foreach ($errors->all() as $error)
+                    <p>{{ $error }}</p>
+                @endforeach
+            @endif
+
+        </div>
         @csrf
         <div>
             <input class="input"

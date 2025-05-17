@@ -11,7 +11,9 @@
 
 <body>
 <div class="add-product">
-    <form class="add-product__form" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+    <div class="errors add-product__errors"></div>
+    <form class="add-product__form" action="{{route('products.store')}}" method="POST"
+          enctype="multipart/form-data">
         @csrf
         <div>
             <input class="input" type="text" placeholder="name" name="name" required>

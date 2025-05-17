@@ -19,7 +19,7 @@ class AdminController extends Controller
             $request->session()->regenerate();
             return to_route('admin.panel');
         }
-        return view('admin.login');
+        return back()->withErrors(['auth' => 'Wrong username or password']);
     }
 
     public function panel(Request $request)

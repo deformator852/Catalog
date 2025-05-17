@@ -4,4 +4,4 @@ import htmx from 'htmx.org';
 //     console.log('htmx request finished', evt.detail);
 // });
 
-
+import './validation/addProductForm';
