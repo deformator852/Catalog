@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Services\ProductService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,11 +23,12 @@ class AdminController extends Controller
         return back()->withErrors(['auth' => 'Wrong username or password']);
     }
 
-    public function panel(Request $request)
+    public function panel()
     {
         $context = [
             'categories' => Category::all(),
-            'products' => Product::select('id', 'name', 'image', 'price')->get()
+            'products' => ProductService::findAll(),
+            'title' => 'Admin Panel'
         ];
         return view('admin.panel', $context);
     }

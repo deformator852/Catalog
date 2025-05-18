@@ -7,17 +7,21 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @property int $id             Уникальный идентификатор продукта
- * @property string $name        Название продукта
- * @property float $price        Цена продукта (с точностью до 2 знаков после запятой)
- * @property string $image       Путь к изображению продукта
- * @property int $category_id    Внешний ключ категории, к которой относится продукт
- * @property string $description Описание продукта
- * @property Carbon|null $created_at Время создания записи
- * @property Carbon|null $updated_at Время последнего обновления записи
+ * @property int $id             Unique product identifier
+ * @property string $name        Product name
+ * @property float $price        Product price (with precision up to 2 decimal places)
+ * @property string $image       Path to the product image
+ * @property int $category_id    Foreign key of the category the product belongs to
+ * @property Carbon|null $created_at Timestamp when the record was created
+ * @property Carbon|null $updated_at Timestamp of the last record update
  */
 class Product extends Model
 {
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     protected static function booted()
     {
         static::deleting(function (Product $product) {

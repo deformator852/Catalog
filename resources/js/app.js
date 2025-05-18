@@ -1,7 +1,8 @@
-import htmx from 'htmx.org';
+import {Alpine} from "alpinejs"
+// import productFilter from "./products/filter.js";
+import './validation/addProductForm.js'
 
-// document.body.addEventListener('htmx:afterRequest', function (evt) {
-//     console.log('htmx request finished', evt.detail);
-// });
+window.Alpine = Alpine
+// window.productFilter = productFilter
+Alpine.start()
 
-import './validation/addProductForm';

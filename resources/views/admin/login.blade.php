@@ -1,39 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin login</title>
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
-</head>
+@section('title',$title)
+@section('content')
+    <div class="login">
+        <form class="login__form" action="" method="POST">
+            <div class="errors">
+                @if ($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+                @endif
 
-<body>
-<div class="login">
-
-    <form class="login__form" action="" method="POST">
-        <div class="errors">
-            @if ($errors->any())
-                @foreach ($errors->all() as $error)
-                    <p>{{ $error }}</p>
-                @endforeach
-            @endif
-
-        </div>
-        @csrf
-        <div>
-            <input class="input"
-                   type="text" name="name" id="name" placeholder="username" required>
-        </div>
-        <div>
-            <input class="input"
-                   type="password" name="password" id="password" placeholder="**************" required>
-        </div>
-        <div>
-            <button class="login__submit submit" type="submit">login</button>
-        </div>
-    </form>
-</div>
-</body>
-
-</html>
+            </div>
+            @csrf
+            <div>
+                <input class="input"
+                       type="text" name="name" id="name" placeholder="username" required>
+            </div>
+            <div>
+                <input class="input"
+                       type="password" name="password" id="password" placeholder="**************" required>
+            </div>
+            <div>
+                <button class="login__submit submit" type="submit">login</button>
+            </div>
+        </form>
+    </div>
+@endsection
