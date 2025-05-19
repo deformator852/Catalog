@@ -35,12 +35,9 @@
                 <p class="products-list__price">${{ $product->price }}</p>
                 <img class="products-list__image" src="{{ asset('storage/'.$product->image) }}"
                      alt="{{ $product->name }}">
-                <div class="products-list__delete">
+                <div class="products-list__delete" x-data="ComponentsFabric.getProductDeleteComponent()">
                     <button
-                        hx-delete="{{ route('products.destroy', $product->id) }}"
-                        hx-target="#product-{{$product->id}}"
-                        hx-swap="delete"
-                        hx-confirm="Are you sure you want to delete this product?"
+                        @click="deleteProduct({{$product->id}})"
                     >
                         Delete
                     </button>

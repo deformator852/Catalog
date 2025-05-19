@@ -173,3 +173,47 @@
         }
     }
 }
+
+.price-filter {
+    margin: 20px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+
+    label {
+        display: flex;
+        flex-direction: column;
+        font-weight: 600;
+        font-size: 16px;
+        color: #333;
+        cursor: default;
+
+        &::after {
+            content: '';
+            display: block;
+            height: 6px; /* небольшой отступ под текстом */
+        }
+
+        input.price-filter__input {
+            padding: 10px 15px;
+            width: 150px;
+            font-size: 16px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            background-color: white;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            transition: border-color 0.3s ease;
+            cursor: text;
+
+            &:hover,
+            &:focus {
+                border-color: #2c80b4;
+                outline: none;
+            }
+        }
+    }
+}
+

@@ -12,7 +12,6 @@ class HomeController extends Controller
     {
         $context = [
             'title' => 'Home',
-            'products' => ProductService::findAll(),
             'categories' => Category::all()
         ];
         return view('home', $context);

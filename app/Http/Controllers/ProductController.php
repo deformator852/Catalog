@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
+use App\Http\Resources\ProductResource;
 use App\Models\Product;
 use App\Services\ProductService;
 use Illuminate\Http\Request;
@@ -16,8 +17,7 @@ class ProductController extends Controller
         $priceMin = $request->query('price_min');
         $priceMax = $request->query('price_max');
         $products = ProductService::findAll($category, $priceMin, $priceMax);
-        Log::channel('stderr', 'asdaaasdsdkmadskadskasd');
-        return response($products);
+        return ProductResource::collection($products);
     }
 
     public function store(StoreProductRequest $request)

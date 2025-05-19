@@ -1,8 +1,8 @@
 import {Alpine} from "alpinejs"
-// import productFilter from "./products/filter.js";
-import './validation/addProductForm.js'
+import ComponentsFabric from "./utils/componentsFabric.js";
+import './form/addProductFormEvent.js'
 
 window.Alpine = Alpine
-// window.productFilter = productFilter
+window.ComponentsFabric = ComponentsFabric
 Alpine.start()
 
