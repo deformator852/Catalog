@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,15 +18,18 @@ use Illuminate\Support\Facades\Storage;
  */
 class Product extends Model
 {
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
+	/**
+	 * @return BelongsTo<Category, Product>
+	 */
+	public function category(): BelongsTo
+	{
+		return $this->belongsTo(Category::class);
+	}
 
-    protected static function booted()
-    {
-        static::deleting(function (Product $product) {
-            Storage::disk('public')->delete($product->image);
-        });
-    }
+	protected static function booted(): void
+	{
+		static::deleting(function (Product $product) {
+			Storage::disk('public')->delete($product->image);
+		});
+	}
 }
