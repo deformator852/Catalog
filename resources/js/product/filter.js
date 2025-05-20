@@ -25,7 +25,6 @@ export default function productPriceAndCategoryFilter() {
 				if (!response.ok) throw new Error(`Error retrieving data. Error text: ${response.status}`);
 				const data = await response.json();
 				this.products = data.data;
-				// console.log(this.products)
 			} catch (error) {
 				console.log(error);
 			} finally {

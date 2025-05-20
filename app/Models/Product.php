@@ -8,13 +8,13 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @property int $id             Unique product identifier
- * @property string $name        Product name
- * @property float $price        Product price (with precision up to 2 decimal places)
+ * @property int $id
+ * @property string $name
+ * @property float $price
  * @property string $image       Path to the product image
- * @property int $category_id    Foreign key of the category the product belongs to
- * @property Carbon|null $created_at Timestamp when the record was created
- * @property Carbon|null $updated_at Timestamp of the last record update
+ * @property int $category_id
+ * @property Carbon|null $created_at
+ * @property Carbon|null $updated_at
  */
 class Product extends Model
 {
